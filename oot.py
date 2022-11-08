@@ -16,7 +16,8 @@ abs_required_items=["bow_1", "light_arrows", "magic_1", "master_sword"]
 song_locations=["zl", "eponas", "sarias", "suns", "time", "storms", "minuet", "preulde", "bolero", "serenade", "requiem", "nocturne"]
 dungeon_rewards = ["deku", "dc", "jabu", "forest", "fire", "water", "spirit", "shadow", "free"]
 dungeon_locations = ["deku", "dc", "jabu", "forest", "fire", "water", "spirit", "shadow", "well", "gtg", "ice"]
-vanilla_dungeon_keys = [0, 0, 0, "?", "?", 6, "?", "?", 3, "?", 0]
+vanilla_dungeon_keys = [0, 0, 0, 5, 8, 6, 9, "???", 3, 9, 0]
+master_quest_keys = [0, 0, 0, 6, 5, 6, 9, "???", 3, 9, 0]
 
 #image loading
   #background (not yet)
