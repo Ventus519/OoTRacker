@@ -64,8 +64,15 @@ class imageScaling():
      screen.blit(self.image, (self.rect.x, self.rect.y))
 start = True
 run = True
-OoT_bg = imageScaling(0, 0, OoT_bg, 1)
+OoT_bg = imageScaling(0, 0, OoT_bg, 4)
+item_bg = imageScaling(0, 0, item_bg, 0.3)
 while run == True:
   while start == True:
     OoT_bg.draw()
     start = False
+    pygame.display.update()
+  for event in pygame.event.get():
+      #pygame.quit() will run and close window
+        print(event)
+        if event.type == pygame.QUIT:
+          run = False
