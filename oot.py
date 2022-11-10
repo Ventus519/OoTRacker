@@ -66,6 +66,58 @@ start = True
 run = True
 OoT_bg = imageScaling(0, 0, OoT_bg, 4)
 item_bg = imageScaling(0, 0, item_bg, 0.3)
+
+#item scaling - default items
+default_hookshot = imageScaling(100, 100, default_hookshot, 0.5)
+
+#item scaling - clicked forms
+hookshot = imageScaling(100, 100, hookshot, 0.5)
+longshot = imageScaling(100, 100, longshot, 0.5)
+
+
+#variables - drawing items (item states for progressive items)
+hookshotState = 0
+bottleState = 0
+bombState = 0
+slingshotState = 0
+stickState = 0
+nutState = 0
+shieldState = 0 #needs to allow both left and right click events to change image
+bowState = 0
+tunicState = 0 #needs to allow both goron and zora tunic to be displayed
+bootState = 0 #needs to allow both iron and hover
+
+#dungeons and skulltula
+forest_keyState = 0
+fire_keyState = 0
+water_keyState = 0
+spirit_keyState = 0
+shadow_keyState = 0
+gtg_keyState = 0
+botw_keyState = 0
+skulltulaState = 0
+
+#support for dungeon entrance rando
+forest_entranceState = 0
+fire_entranceState = 0
+water_entranceState = 0
+spirit_entranceState = 0
+shadow_entranceState = 0
+gtg_entranceState = 0
+botw_entranceState = 0
+ice_entranceState = 0
+
+#dungeon reward states
+deku_rewardState = 0
+dc_rewardState = 0
+jabu_rewardState = 0
+forest_rewardState = 0
+fire_rewardState = 0
+water_rewardState = 0
+spirit_rewardState = 0
+shadow_rewardState = 0
+light_rewardState = 0
+
 while run == True:
   while start == True:
     OoT_bg.draw()
