@@ -1,4 +1,3 @@
-#import
 import pygame
 
 
@@ -21,9 +20,15 @@ master_quest_keys = [0, 0, 0, 6, 5, 6, 9, "???", 3, 9, 0]
 
 #image loading
   #background (not yet)
-
+OoT_bg = pygame.image.load("assets/images/OoT/bg/OoT_bg.png").convert_alpha()
+item_bg = pygame.image.load("assets/images/OoT/bg/items.png").convert_alpha()
   #default item loading
+default_hookshot = pygame.image.load("assets/images/OoT/items/hookshot/hookshot_0.png").convert_alpha()
 
+  
+  #obtained item loading
+hookshot = pygame.image.load("assets/images/OoT/items/hookshot/hookshot.png").convert_alpha()
+longshot = pygame.image.load("assets/images/OoT/items/hookshot/longshot.png").convert_alpha()
 
   #dungeon reward loading - medallions
 default_light = pygame.image.load("assets/images/OoT/medallions/light_gray.png").convert_alpha()
@@ -43,3 +48,24 @@ clicked_spirit = pygame.image.load("assets/images/OoT/medallions/spirit.png").co
 
 default_shadow = pygame.image.load("assets/images/OoT/medallions/shadow_gray.png").convert_alpha()
 clicked_shadow = pygame.image.load("assets/images/OoT/medallions/shadow.png").convert_alpha()
+
+
+#classes for defining image, scale, and location
+class imageScaling():
+  def __init__(self, x, y, image, scale):
+    width = image.get_width()
+    height = image.get_height()
+    self.image = pygame.transform.scale(
+        image, (int(width * scale), int(height * scale)))
+    self.rect = self.image.get_rect()
+    self.rect.topleft = (x, y)
+
+  def draw(self):
+     screen.blit(self.image, (self.rect.x, self.rect.y))
+start = True
+run = True
+OoT_bg = imageScaling(0, 0, OoT_bg, 1)
+while run == True:
+  while start == True:
+    OoT_bg.draw()
+    start = False
