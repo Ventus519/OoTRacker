@@ -24,7 +24,7 @@ OoT_bg = pygame.image.load("assets/images/OoT/bg/OoT_bg.png").convert_alpha()
 item_bg = pygame.image.load("assets/images/OoT/bg/items.png").convert_alpha()
   #default item loading
 default_hookshot = pygame.image.load("assets/images/OoT/items/hookshot/hookshot_0.png").convert_alpha()
-
+default_bow = pygame.image.load("assets/images/OoT/items/bow/no.png").convert_alpha()
   
   #obtained item loading
 hookshot = pygame.image.load("assets/images/OoT/items/hookshot/hookshot.png").convert_alpha()
@@ -65,14 +65,14 @@ class imageScaling():
 start = True
 run = True
 OoT_bg = imageScaling(0, 0, OoT_bg, 4)
-item_bg = imageScaling(0, 0, item_bg, 0.3)
+item_bg = imageScaling(0, 0, item_bg, 0.75)
 
 #item scaling - default items
-default_hookshot = imageScaling(100, 100, default_hookshot, 0.5)
-
+default_hookshot = imageScaling(100, 100, default_hookshot, 0.2)
+default_bow = imageScaling(240, 0, default_bow, 0.2)
 #item scaling - clicked forms
-hookshot = imageScaling(100, 100, hookshot, 0.5)
-longshot = imageScaling(100, 100, longshot, 0.5)
+hookshot = imageScaling(100, 100, hookshot, 0.2)
+longshot = imageScaling(100, 100, longshot, 0.2)
 
 
 #variables - drawing items (item states for progressive items)
@@ -118,13 +118,43 @@ spirit_rewardState = 0
 shadow_rewardState = 0
 light_rewardState = 0
 
+
+#rectangles, the bane of my existence
+hookshot_rect = pygame.Rect(100, 100, 50, 50) #50, 50 is the absolute rect size for hook
 while run == True:
   while start == True:
     OoT_bg.draw()
+    item_bg.draw()
+    if hookshotState == 0:
+          default_hookshot.draw()
+    if hookshotState == 1:
+          hookshot.draw()
+    if hookshotState == 2:
+          longshot.draw()
+    if bowState == 0:
+          default_bow.draw()
     start = False
     pygame.display.update()
   for event in pygame.event.get():
       #pygame.quit() will run and close window
         print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
+              x, y = event.pos
+              if hookshot_rect.collidepoint(x, y) and hookshotState == 1:
+                    hookshotState = 0
+              elif hookshot_rect.collidepoint(x, y) and hookshotState == 2:
+                    hookshotState = 1
+              start = True
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: #left click event
+          x, y = event.pos
+          if hookshot_rect.collidepoint(x, y) and hookshotState == 0:
+                hookshotState = 1
+                print("hookshot")
+                start = True
+                break
+          if hookshot_rect.collidepoint(x, y) and hookshotState == 1:
+                hookshotState = 2
+                print("longshot")
+                start = True
         if event.type == pygame.QUIT:
           run = False
