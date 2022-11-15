@@ -18,6 +18,22 @@ dungeon_locations = ["deku", "dc", "jabu", "forest", "fire", "water", "spirit", 
 vanilla_dungeon_keys = [0, 0, 0, 5, 8, 6, 9, "???", 3, 9, 0]
 master_quest_keys = [0, 0, 0, 6, 5, 6, 9, "???", 3, 9, 0]
 
+#dungeon settings
+dungeon_entrance_rando = False
+dungeon_boss_locations = ["ghoma", "king_dodongo", "barinade", "phantom_ganon", "volvagia", "morpha", "twinrova", "bongo_bongo", "ganon"]
+dungeon_boss_rando = False
+dungeon_reward_type = "medallions" #type of reward required, options : medallions, stones, any
+dungeon_reward_amount = 6
+trials = 6
+mq = False
+triforce_hunt = False
+dungeon_settings = [mq, dungeon_reward_type, dungeon_reward_amount, dungeon_entrance_rando, dungeon_boss_rando, trials]
+
+#deku reqs
+
+#overworld settings
+
+
 #image loading
   #background (not yet)
 OoT_bg = pygame.image.load("assets/images/OoT/bg/OoT_bg.png").convert_alpha()
